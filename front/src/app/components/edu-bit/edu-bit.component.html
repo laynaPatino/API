@@ -1,0 +1,128 @@
+<div class="container">
+    <div class="row center-align">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content center-align">
+                    <form #createStudentForm="ngForm" (ngSubmit)="agregarEstudiante()">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix red-text">account_circle</i>
+                                    <input id="icon_prefix" type="text" class="validate red-text" #nombres="ngModel"
+                                        name="nombres" [(ngModel)]="studentRegistro.nombres">
+                                    <label for="icon_prefix">Nombre</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix red-text">account_circle</i>
+                                    <input id="icon_prefix" type="text" class="validate red-text" required
+                                        #apellidos="ngModel" name="apellidos" [(ngModel)]="studentRegistro.apellidos">
+                                    <label for="icon_prefix">Apellidos</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix red-text">cake</i>
+                                    <input min="0" id="icon_cake" type="number" class="validate red-text" required
+                                        #edad="ngModel" name="edad" [(ngModel)]="studentRegistro.edad">
+                                    <label for="icon_cake">Edad</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix red-text">email</i>
+                                    <input id="icon_email" type="email" class="validate red-text" required
+                                        #correo="ngModel" name="correo" [(ngModel)]="studentRegistro.correo">
+                                    <label for="icon_email">Correo</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix red-text">location_on</i>
+                                    <input id="icon_location" type="text" class="validate red-text" required
+                                        #direccion="ngModel" name="direccion" [(ngModel)]="studentRegistro.direccion">
+                                    <label for="icon_location">Direccion</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix red-text">phone</i>
+                                    <input id="icon_telephone" type="tel" class="validate red-text" required
+                                        #telefono="ngModel" name="telefono" [(ngModel)]="studentRegistro.telefono">
+                                    <label for="icon_telephone">Telefono</label>
+                                </div>
+                                <br>
+                                <button class="btn waves-effect waves-light red" type="submit">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-content">
+            <div class="row " *ngFor="let  student of studentEncontrados">
+                <form class="col s12" #toupdateStudentForm="ngForm">
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix red-text">account_circle</i>
+                            <input id="icon_prefix" type="text" class="validate red-text" required #nombres="ngModel"
+                                name="nombres" [(ngModel)]="student.nombres">
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix red-text">account_circle</i>
+                            <input id="icon_prefix" type="text" class="validate red-text" required #apellidos="ngModel"
+                                name="apellidos" [(ngModel)]="student.apellidos">
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix red-text">cake</i>
+                            <input id="icon_cake" type="number" class="validate red-text" required #edad="ngModel"
+                                name="edad" [(ngModel)]="student.edad">
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix red-text">email</i>
+                            <input id="icon_email" type="email" class="validate red-text" #correo="ngModel"
+                                name="correo" [(ngModel)]="student.correo">
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix red-text">location_on</i>
+                            <input id="icon_location" type="email" class="validate red-text" required
+                                #direccion="ngModel" name="direccion" [(ngModel)]="student.direccion">
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <i class="material-icons prefix red-text">phone</i>
+                            <input id="icon_telephone" type="tel" class="validate red-text" #telefono="ngModel"
+                                name="telefono" [(ngModel)]="student.telefono">
+                        </div>
+                        <div class="right">
+                            <td (click)=" editarStudent(student)"><i class="material-icons red-text">edit</i></td>
+                            <td (click)="eliminarStudent(student._id)"> <i class="material-icons red-text">delete</i></td>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <!--<div class="col s5 row" >
+            <form >
+                <input type="text" id="nombre" placeholder="Nombre" required #nombres="ngModel" name="nombres"
+                    [(ngModel)]="student.nombres">
+                <br>
+                <input type="text" id="apellido" placeholder="Apellidos" required #apellidos="ngModel" name="apellidos"
+                    [(ngModel)]="student.apellidos">
+                <br>
+                <input type="number" id="edad" placeholder="Edad" required #edad="ngModel" name="edad"
+                    [(ngModel)]="student.edad">
+                <br>
+                <input type="email" id="email" placeholder="Correo" required #correo="ngModel" name="correo"
+                    [(ngModel)]="student.correo">
+                <br>
+                <input type="text" id="direccion" placeholder="Dirreccion" required #direccion="ngModel"
+                    name="direccion" [(ngModel)]="student.direccion">
+                <br>
+                <input type="number" id="telefono" placeholder="Telefono" required #telefono="ngModel" name="telefono"
+                    [(ngModel)]="student.telefono">
+                <br>
+                
+            </form>
+        </div>-->
+    </div>
+</div>
